@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Set the ACL for existing files/directories
+sudo setfacl -R -m u:"$(whoami)":rwx /srv/salt/
+
+# Set a default ACL so new files/subdirectories you create inherit the same permissions
+sudo setfacl -R -m d:u:"$(whoami)":rwx /srv/salt/
